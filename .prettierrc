@@ -1,11 +1,15 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
+  "useTabs": false,
+  "tabWidth": 2,
   "overrides": [
     {
-      "files": "*.ts",
+      "files": "*.yaml",
       "options": {
-        "parser": "typescript"
+        "tadWidth": 2,
+        "printWidth": 40,
+        "singleQuote": true
       }
     }
   ]

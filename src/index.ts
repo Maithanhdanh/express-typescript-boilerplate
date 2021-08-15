@@ -1,6 +1,5 @@
 import * as moduleAlias from 'module-alias';
 const sourcePath = process.env.NODE_ENV === 'development' ? 'src' : 'build';
-
 moduleAlias.addAliases({
   '@server': sourcePath,
   '@config': `${sourcePath}/config`,
@@ -11,6 +10,7 @@ import { createServer } from '@config/express';
 import { AddressInfo } from 'net';
 import http from 'http';
 import { logger } from '@config/logger';
+
 const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || '5000';
 
