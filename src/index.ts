@@ -1,16 +1,17 @@
 import * as moduleAlias from 'module-alias';
 const sourcePath = process.env.NODE_ENV === 'development' ? 'src' : 'build';
+
 moduleAlias.addAliases({
   '@server': sourcePath,
   '@config': `${sourcePath}/config`,
   '@domain': `${sourcePath}/domain`,
 });
 
-import createServer from '@config/express';
+import { createServer } from '@config/express';
 import { AddressInfo } from 'net';
 import http from 'http';
 import { logger } from '@config/logger';
-const host = process.env.host || 'localhost';
+const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || '5000';
 
 async function startServer() {
@@ -28,7 +29,7 @@ async function startServer() {
       logger.info(`process.once ${type}`);
 
       server.close(() => {
-        logger.debug(`HTTP server closed`);
+        logger.debug('HTTP server closed');
       });
     });
   });

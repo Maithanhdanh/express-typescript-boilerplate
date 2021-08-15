@@ -1,6 +1,6 @@
 import express from 'express';
 
-const createServer = (): express.Application => {
+const createServer = async (): Promise<express.Application> => {
   const app = express();
 
   app.use(express.urlencoded({ extended: true }));
@@ -9,10 +9,10 @@ const createServer = (): express.Application => {
   app.disable('x-powered-by');
 
   app.get('/health', (_req, res) => {
-    res.json('ok');
+    res.json('UP');
   });
 
   return app;
 };
 
-export default createServer;
+export { createServer };
