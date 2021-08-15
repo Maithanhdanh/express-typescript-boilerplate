@@ -5,10 +5,6 @@ import { Server } from 'net';
 console.log('process.version', process.version);
 
 describe('Index', () => {
-  afterAll((done) => {
-    done();
-  });
-
   it('should work', async () => {
     const listen = jest.spyOn(Server.prototype, 'listen');
     jest.mock('@config/express', () => ({

@@ -1,6 +1,6 @@
 import express from 'express';
 
-const createServer = (): express.Application => {
+const createServer = async (): Promise<express.Application> => {
   const app = express();
 
   app.use(express.urlencoded({ extended: true }));

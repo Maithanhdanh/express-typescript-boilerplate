@@ -6,14 +6,14 @@ export default {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  // coverageThreshold: {
-  //   global: {
-  //     branches: 70,
-  //     function: 80,
-  //     lines: 80,
-  //     statements: 80,
-  //   },
-  // },
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      function: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
   globals: {
     'ts-jest': {
       tsconfig: path.resolve(__dirname, 'tsconfig.json'),
