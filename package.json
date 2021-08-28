@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "nodemon --config restart.json",
-    "clean": "rimraf coverage build tmp",
+    "clean": "rm -rf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.build.json",
     "build:watch": "tsc -w -p tsconfig.build.json",
