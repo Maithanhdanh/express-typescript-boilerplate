@@ -1,6 +1,6 @@
 {
-  "name": "node-typescript-boilerplate",
-  "version": "0.0.0",
+  "name": "express-typescript-boilerplate",
+  "version": "1.0.0",
   "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "engines": {
     "node": ">= 14.16 <15"
