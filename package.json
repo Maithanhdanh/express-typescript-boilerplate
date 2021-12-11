@@ -5,8 +5,12 @@
   "engines": {
     "node": ">= 14.16 <15"
   },
+  "bin": {
+    "create-typescript-maker": "./bin/generateApp.js"
+  },
   "scripts": {
-    "start": "nodemon --config restart.json",
+    "start": "node src/index",
+    "dev": "nodemon --config restart.json",
     "clean": "rm -rf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.build.json",
