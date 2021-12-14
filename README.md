@@ -20,6 +20,18 @@
 
 This project is intended to be used with the latest Active LTS release of [Node.js][nodejs].
 
+### Using NPM
+
+This package is used to generate Typescript project, so I recommend to install it **globally**. Then run command to create new project whenever we want
+
+```
+npm install -g typescript-maker
+
+# Generate new project
+
+typescript-maker my-project
+```
+
 ### Use as a repository template
 
 To start, just click the **[Use template][repo-template-action]** link (or the green button). Start adding your code in the `src` and unit tests in the `__tests__` directories.
