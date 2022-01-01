@@ -1,6 +1,7 @@
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const rimraf = require('rimraf');
 const { SupportedPipelineTools, GIT_REPO } = require('./constants');
 
 const getPipelineFolder = async (projectPath, pipelineTool) => {
@@ -32,10 +33,9 @@ const setupPackage = async (projectPath, pipelineTool) => {
     fs.unlinkSync(path.join(projectPath, 'CHANGELOG.md'));
     fs.unlinkSync(path.join(projectPath, 'package-lock.json'));
 
-    execSync('npx rimraf ./.git');
-    execSync('npx rimraf ./pipeline');
-    execSync('npx rimraf ./bin');
-    execSync('npm uninstall commander --save');
+    rimraf('./.git')
+    rimraf('./pipeline')
+    rimraf('./bin')
 
     console.log('Initializing project successfully!!!');
     console.log();
