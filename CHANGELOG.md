@@ -2,3 +2,9 @@
 
 - Add npm command `typescript-maker my-project`
 - Update `README`
+
+# [1.1.0]
+
+- Add npm command `init`
+- Add option pipeline selection, currently supported CircleCI and Github
+- Update `README`

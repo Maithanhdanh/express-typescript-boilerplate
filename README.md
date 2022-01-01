@@ -29,12 +29,12 @@ npm install -g typescript-maker
 
 # Generate new project
 
-typescript-maker my-project
+typescript-maker init my-project
 ```
 
 ### Use as a repository template
 
-To start, just click the **[Use template][repo-template-action]** link (or the green button). Start adding your code in the `src` and unit tests in the `__tests__` directories.
+To start, just click the **[Use template][repo-template-action]** link (or the green button). Then, select which pipeline you gonna use by moving that one out of `pipeline` folder and removing `pipeline` folder. Start adding your code in the `src` and unit tests in the `__tests__` directories.
 
 ### Clone repository
 

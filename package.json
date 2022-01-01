@@ -1,9 +1,9 @@
 {
   "name": "typescript-maker",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "engines": {
-    "node": ">= 14.16 <15"
+    "node": ">=14 <15"
   },
   "bin": {
     "typescript-maker": "./bin/generateApp.js"
@@ -21,6 +21,7 @@
   "author": "Dantis Mai <mtd.maithanhdanh@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    "commander": "^8.3.0",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "tslib": "~2.3.0",
