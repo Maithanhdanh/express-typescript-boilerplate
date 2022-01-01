@@ -5,11 +5,12 @@
 const path = require('path');
 const { Command } = require('commander');
 const program = new Command();
-const { setupPackage } = require('./setupPackage');
-const { validatePath } = require('./utils');
+const { setupPackage, createPipelineTemplate } = require('./setupTemplate');
+const { setupFolder, validateSupportedPipeline } = require('./validator');
 
 program
   .command('init <project_name>')
+  .description('Initialize a new project')
   .option(
     '-p, --pipeline_tool <pipeline>',
     `pipeline tool [circleci, github]`,
@@ -21,9 +22,20 @@ program
     const currentPath = process.cwd();
     const projectPath = path.join(currentPath, projectName);
 
-    validatePath(projectPath);
+    setupFolder(projectPath);
 
     setupPackage(projectPath, pipelineTool);
+  });
+
+program
+  .command('create-pipeline <pipeline_tool>')
+  .description('Create pipeline template')
+  .action((pipelineTool) => {
+    validateSupportedPipeline(pipelineTool);
+
+    const currentPath = process.cwd();
+
+    createPipelineTemplate(currentPath, pipelineTool);
   });
 
 program.parse(process.argv);

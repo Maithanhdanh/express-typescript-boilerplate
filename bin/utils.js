@@ -1,18 +1,7 @@
 const fs = require('fs');
 
-const validatePath = (projectPath) => {
-  try {
-    fs.mkdirSync(projectPath);
-  } catch (err) {
-    if (err.code === 'EEXIST') {
-      console.log(
-        'Directory already exists. Please choose another name for the project.',
-      );
-    } else {
-      console.log(err);
-    }
-    process.exit(1);
-  }
+const isPathExist = (path) => {
+  return fs.existsSync(path) ? true : false;
 };
 
-module.exports = { validatePath };
+module.exports = { isPathExist };
