@@ -9,27 +9,21 @@ const { setupPackage } = require('./setupPackage');
 const { validatePath } = require('./utils');
 
 program
-  .command('init <project-name>')
+  .command('init <project_name>')
   .option(
-    '-p, --pipeline-tool <pipeline>',
+    '-p, --pipeline_tool <pipeline>',
     `pipeline tool [circleci, github]`,
     'cirlceci',
   )
   .action((projectName, options) => {
-    const { pipelineTool } = options;
+    const { pipeline_tool: pipelineTool } = options;
 
     const currentPath = process.cwd();
     const projectPath = path.join(currentPath, projectName);
 
     validatePath(projectPath);
 
-    if (!projectName) {
-      console.log('You have to provide a name to your app.');
-      console.log('For example :');
-      console.log('    typescript-maker my-app');
-      process.exit(1);
-    }
-
     setupPackage(projectPath, pipelineTool);
-  })
-  .parse(process.argv);
+  });
+
+program.parse(process.argv);

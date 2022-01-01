@@ -1,23 +1,32 @@
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
-const rimraf = require('rimraf');
 const { SupportedPipelineTools, GIT_REPO } = require('./constants');
 
 const getPipelineFolder = async (projectPath, pipelineTool) => {
   let oldPath = path.join(projectPath, 'pipeline/.circleci');
   let newPath = path.join(projectPath, '.circleci');
 
-  if (pipelineTool === SupportedPipelineTools.CIRCLECI) {
+  if (pipelineTool === SupportedPipelineTools.GITHUB) {
     oldPath = path.join(projectPath, 'pipeline/.github');
     newPath = path.join(projectPath, '.github');
 
     fs.unlinkSync(
-      path.join(projectPath, '.github/workflows/codeql-analysis.yml'),
+      path.join(projectPath, 'pipeline/.github/workflows/codeql-analysis.yml'),
     );
   }
 
   fs.renameSync(oldPath, newPath);
+};
+
+const formatPackageJson = (projectPath) => {
+  const packageJsonPath = path.join(projectPath, 'package.json');
+  const packageJson = require(packageJsonPath);
+
+  delete packageJson.bin;
+  delete packageJson.dependencies.commander;
+
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 4));
 };
 
 const setupPackage = async (projectPath, pipelineTool) => {
@@ -33,9 +42,11 @@ const setupPackage = async (projectPath, pipelineTool) => {
     fs.unlinkSync(path.join(projectPath, 'CHANGELOG.md'));
     fs.unlinkSync(path.join(projectPath, 'package-lock.json'));
 
-    rimraf('./.git')
-    rimraf('./pipeline')
-    rimraf('./bin')
+    fs.rmdirSync('./.git', { recursive: true });
+    fs.rmdirSync('./pipeline', { recursive: true });
+    fs.rmdirSync('./bin', { recursive: true });
+
+    formatPackageJson(projectPath);
 
     console.log('Initializing project successfully!!!');
     console.log();
