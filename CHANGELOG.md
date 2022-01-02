@@ -8,3 +8,7 @@
 - Add npm command `init`
 - Add option pipeline selection, currently supported CircleCI and Github
 - Update `README`
+
+# [1.1.1]
+
+- Update `README`

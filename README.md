@@ -32,6 +32,13 @@ npm install -g typescript-maker
 typescript-maker init my-project
 ```
 
+### Create pipeline template
+```
+# currently it just supports 'circleci' or 'github'
+
+typescript-maker create-pipeline circleci
+```
+
 ### Use as a repository template
 
 To start, just click the **[Use template][repo-template-action]** link (or the green button). Then, select which pipeline you gonna use by moving that one out of `pipeline` folder and removing `pipeline` folder. Start adding your code in the `src` and unit tests in the `__tests__` directories.
