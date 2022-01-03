@@ -12,3 +12,7 @@
 # [1.1.1]
 
 - Update `README`
+
+# [1.1.2]
+
+- Up version to get sample log when running `npm publish` for tech blog
