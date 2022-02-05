@@ -18,12 +18,15 @@
     "noImplicitAny": false,
     "noImplicitThis": false,
     "strictNullChecks": false,
+    "experimentalDecorators": true,
     "outDir": "./build",
     "baseUrl": ".",
     "paths": {
       "@server/*": ["src/*"],
       "@tests/*": ["__tests__/*"],
-      "@config/*": ["src/config/*"]
+      "@config/*": ["src/config/*"],
+      "@controller/*": ["src/controller/*"],
+      "@application/*": ["src/application/*"]
     }
   },
   "include": ["src/**/*", "__tests__/**/*"],

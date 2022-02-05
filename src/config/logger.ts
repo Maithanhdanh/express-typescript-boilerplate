@@ -8,3 +8,13 @@ const LoggerWrapper = (): winston.Logger => {
 };
 
 export const logger = LoggerWrapper();
+
+export const createChildLogger = (massagePrefix: string): winston.Logger =>
+  Object.create(logger, {
+    write: {
+      value(info) {
+        info.message = `[${massagePrefix}] ${info.message}`;
+        logger.write(info);
+      },
+    },
+  });

@@ -9,7 +9,7 @@
     "typescript-maker": "./bin/generateApp.js"
   },
   "scripts": {
-    "start": "node src/index",
+    "start": "ts-node -r reflect-metadata -r tsconfig-paths/register -r dotenv/config src/index",
     "dev": "nodemon --config restart.json",
     "clean": "rm -rf coverage build tmp",
     "prebuild": "npm run lint",
@@ -23,7 +23,11 @@
   "dependencies": {
     "commander": "^8.3.0",
     "express": "^4.17.1",
+    "inversify": "^6.0.1",
+    "inversify-express-utils": "^6.4.3",
+    "inversify-logging": "^0.2.1",
     "module-alias": "^2.2.2",
+    "reflect-metadata": "^0.1.13",
     "tslib": "~2.3.0",
     "winston": "^3.3.3"
   },
