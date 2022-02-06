@@ -1,15 +1,15 @@
-import winston from 'winston';
+import { createLogger, Logger, transports } from 'winston';
 
-const LoggerWrapper = (): winston.Logger => {
-  return winston.createLogger({
-    transports: [new winston.transports.Console()],
+const LoggerWrapper = (): Logger => {
+  return createLogger({
+    transports: [new transports.Console()],
     exitOnError: false,
   });
 };
 
 export const logger = LoggerWrapper();
 
-export const createChildLogger = (massagePrefix: string): winston.Logger =>
+export const createChildLogger = (massagePrefix: string): Logger =>
   Object.create(logger, {
     write: {
       value(info) {

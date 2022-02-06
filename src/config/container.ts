@@ -1,22 +1,32 @@
+import {
+  ServiceInfoService,
+  ServiceInfoServiceImpl,
+} from '@application/service-info/serviceInfo.service';
 import { types } from '@config/constants';
-import { logger } from '@config/logger';
+import { createChildLogger, logger } from '@config/logger';
 import {
   HealthCheckController,
   HealthCheckControllerImpl,
 } from '@controller/health-check/healthCheck.controller';
 import {
-  ServiceInfoService,
-  ServiceInfoServiceImpl,
-} from '@server/application/service-info/serviceInfo.service';
-import {
   ServiceInfoController,
   ServiceInfoControllerImpl,
-} from '@server/controller/service-info/serviceInfo.controller';
-import { Container } from 'inversify';
+} from '@controller/service-info/serviceInfo.controller';
+import { getClassNameFromRequest } from '@utils/container';
+import { Container, interfaces } from 'inversify';
+import { Logger } from 'winston';
 
 const createContainer = (): Container => {
   logger.debug(`[${createContainer.name}] Register service on Container`);
   const container = new Container();
+
+  //Logger
+  container
+    .bind<Logger>(types.Logger)
+    .toDynamicValue((context: interfaces.Context) => {
+      const namedMetadata = getClassNameFromRequest(context);
+      return createChildLogger(namedMetadata);
+    });
 
   //Controller
   container
@@ -26,7 +36,7 @@ const createContainer = (): Container => {
     .bind<ServiceInfoController>(types.Controller.SERVICE_INFO)
     .to(ServiceInfoControllerImpl);
 
-    //Service
+  //Service
   container
     .bind<ServiceInfoService>(types.Service.SERVICE_INFO)
     .to(ServiceInfoServiceImpl);

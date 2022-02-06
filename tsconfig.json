@@ -26,7 +26,8 @@
       "@tests/*": ["__tests__/*"],
       "@config/*": ["src/config/*"],
       "@controller/*": ["src/controller/*"],
-      "@application/*": ["src/application/*"]
+      "@application/*": ["src/application/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src/**/*", "__tests__/**/*"],

@@ -6,6 +6,7 @@ moduleAlias.addAliases({
   '@domain': `${sourcePath}/domain`,
   '@controller': `${sourcePath}/controller`,
   '@application': `${sourcePath}/application`,
+  '@utils': `${sourcePath}/utils`,
 });
 
 import createContainer from '@config/container';
