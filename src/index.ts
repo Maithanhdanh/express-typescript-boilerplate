@@ -10,11 +10,9 @@ moduleAlias.addAliases({
 
 import createContainer from '@config/container';
 import { startServer } from '@config/express';
-import { activateLogging } from 'inversify-logging';
 
 (async () => {
   const container = createContainer();
 
-  activateLogging(container);
   startServer(container);
 })();

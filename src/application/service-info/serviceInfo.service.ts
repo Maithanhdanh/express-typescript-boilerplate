@@ -1,17 +1,23 @@
-import { types } from '@config/constants';
 import { ServiceInfoResponse } from '@application/service-info/type';
 import environment from '@config/environment';
-import { inject, injectable } from 'inversify';
-import { ILogger, LoggingContext } from 'inversify-logging';
+import { createChildLogger } from '@config/logger';
+import { injectable } from 'inversify';
+import { Logger } from 'winston';
 
+const loggerGroup =
+  (serviceName: string) =>
+  <T extends { new (...args: any[]): {} }>(constructor: T) =>
+    class extends constructor {
+      logger = createChildLogger(serviceName);
+    };
 interface ServiceInfoService {
   getServiceInfo(): ServiceInfoResponse;
 }
 
+@loggerGroup('ServiceInfoServiceImpl')
 @injectable()
-@LoggingContext('ServiceInfoServiceImpl')
 class ServiceInfoServiceImpl implements ServiceInfoService {
-  @inject(types.Logger) logger: ILogger;
+  private logger: Logger;
 
   public getServiceInfo(): ServiceInfoResponse {
     this.logger.info(`[${this.getServiceInfo.name}] getting service info`);
