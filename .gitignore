@@ -30,3 +30,4 @@ build/
 
 .env
 *report.html
+request.http
