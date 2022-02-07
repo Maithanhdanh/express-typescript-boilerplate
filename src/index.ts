@@ -9,7 +9,7 @@ moduleAlias.addAliases({
   '@utils': `${sourcePath}/utils`,
 });
 
-import createContainer from '@config/container';
+import { createContainer } from '@config/container';
 import { startServer } from '@config/express';
 
 (async () => {

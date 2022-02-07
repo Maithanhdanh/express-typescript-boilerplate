@@ -22,9 +22,12 @@ export default {
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
+    '@tests(.*)$': `${rootDirectory}/__tests__$1`,
     '@server(.*)$': `${rootDirectory}/src$1`,
     '@config(.*)$': `${rootDirectory}/src/config$1`,
-    '@tests(.*)$': `${rootDirectory}/__tests__$1`,
+    '@controller(.*)$': `${rootDirectory}/src/controller$1`,
+    '@application(.*)$': `${rootDirectory}/src/application$1`,
+    '@utils(.*)$': `${rootDirectory}/src/utils$1`,
   },
   reporters: [
     'default',

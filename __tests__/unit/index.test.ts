@@ -1,21 +1,20 @@
-process.env.PORT = '3001';
-import express from 'express';
-import { Server } from 'net';
+import { startServer } from '@config/express';
+process.env.port = '3001';
 
-console.log('process.version', process.version);
+jest.mock('@config/container', () => ({
+  createContainer: jest.fn().mockImplementation(() => {
+    return { get: jest.fn() };
+  }),
+}));
+jest.mock('@config/express');
 
 describe('Index', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should work', async () => {
-    const listen = jest.spyOn(Server.prototype, 'listen');
-    jest.mock('@config/express', () => ({
-      createServer: jest.fn().mockReturnValue(express()),
-    }));
     await import('@server/index');
-    expect(listen).toBeCalled();
-    const server = listen.mock.results[0].value as Server;
-    setImmediate(() => {
-      server.close();
-    });
-    listen.mockRestore();
+    expect(startServer).toBeCalledTimes(1);
   });
 });
