@@ -16,3 +16,8 @@
 # [1.1.2]
 
 - Up version to get sample log when running `npm publish` for tech blog
+
+# [1.2.0]
+
+- Add IOC container using [inversify](https://www.npmjs.com/package/inversify)
+- Fix script `npm start`
