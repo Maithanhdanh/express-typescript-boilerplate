@@ -1,5 +1,9 @@
+import 'reflect-metadata';
+
 process.env = {
   ...process.env,
-  HOST: 'localhost',
-  PORT: '5000',
+  serviceName: 'boilerplate',
+  APP_VERSION: '1.0.1',
+  host: 'localhost',
+  port: '5000',
 };
