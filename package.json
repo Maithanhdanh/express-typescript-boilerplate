@@ -1,6 +1,6 @@
 {
   "name": "typescript-maker",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "engines": {
     "node": ">=14 <15"
@@ -9,7 +9,7 @@
     "typescript-maker": "./bin/generateApp.js"
   },
   "scripts": {
-    "start": "node src/index",
+    "start": "ts-node -r tsconfig-paths/register -r dotenv/config src/index",
     "dev": "nodemon --config restart.json",
     "clean": "rm -rf coverage build tmp",
     "prebuild": "npm run lint",

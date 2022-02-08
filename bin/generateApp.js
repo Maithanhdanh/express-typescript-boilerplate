@@ -16,15 +16,16 @@ program
     `pipeline tool [circleci, github]`,
     'cirlceci',
   )
+  .option('-ioc, --ioc', `IOC container`)
   .action((projectName, options) => {
-    const { pipeline_tool: pipelineTool } = options;
+    const { pipeline_tool: pipelineTool, ioc } = options;
 
     const currentPath = process.cwd();
     const projectPath = path.join(currentPath, projectName);
 
     setupFolder(projectPath);
 
-    setupPackage(projectPath, pipelineTool);
+    setupPackage(projectPath, pipelineTool, ioc);
   });
 
 program

@@ -35,10 +35,13 @@ const formatPackageJson = (projectPath) => {
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 4));
 };
 
-const setupPackage = (projectPath, pipelineTool) => {
+const setupPackage = (projectPath, pipelineTool, ioc = false) => {
   try {
     console.log('Downloading files...');
-    execSync(`git clone ${GIT_REPO} ${projectPath}`);
+
+    execSync(
+      `git clone --branch ${ioc ? 'ioc' : 'main'} ${GIT_REPO} ${projectPath}`,
+    );
 
     process.chdir(projectPath);
     getPipelineFolder(projectPath, pipelineTool);
