@@ -1,6 +1,6 @@
 {
   "name": "typescript-maker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "engines": {
     "node": ">=14 <15"

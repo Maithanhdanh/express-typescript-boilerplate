@@ -21,3 +21,7 @@
 
 - Add IOC container using [inversify](https://www.npmjs.com/package/inversify)
 - Fix script `npm start`
+
+# [1.2.1]
+
+- Update `README`

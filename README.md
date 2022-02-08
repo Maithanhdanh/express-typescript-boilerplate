@@ -32,6 +32,12 @@ npm install -g typescript-maker
 typescript-maker init my-project
 ```
 
+### Available options
+```
+- ioc : setup IOC container using [inversify](https://www.npmjs.com/package/inversify) (default: normal express)
+- p --pipeline <pipeline tool>: setup pipeline template (default: CircleCI)
+```
+
 ### Create pipeline template
 ```
 # currently it just supports 'circleci' or 'github'
