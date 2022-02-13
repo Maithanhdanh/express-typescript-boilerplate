@@ -16,10 +16,6 @@ const getPipelineFolder = (projectPath, pipelineTool) => {
   if (pipelineTool === SupportedPipelineTools.GITHUB) {
     oldPath = path.join(projectPath, 'pipeline/.github');
     newPath = path.join(projectPath, '.github');
-
-    fs.unlinkSync(
-      path.join(projectPath, 'pipeline/.github/workflows/codeql-analysis.yml'),
-    );
   }
 
   fs.renameSync(oldPath, newPath);
@@ -78,10 +74,6 @@ const publishTemplate = (projectPath, templatePath, pipelineTool) => {
   const newPath = path.join(projectPath, `${PipelinePathMapper[pipelineTool]}`);
 
   fs.renameSync(oldPath, newPath);
-
-  if (pipelineTool === SupportedPipelineTools.GITHUB) {
-    fs.unlinkSync(`${newPath}/codeql-analysis.yml`);
-  }
 };
 
 const createPipelineTemplate = (projectPath, pipelineTool) => {
