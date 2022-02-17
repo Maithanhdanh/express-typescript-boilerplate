@@ -1,3 +1,7 @@
+# [1.2.3]
+
+- Add decorator `logGroup` to add called method to logger prefix
+
 # [1.2.2]
 
 - Add Github `CodeQL` pipeline

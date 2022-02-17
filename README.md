@@ -59,15 +59,13 @@ cd express-typescript-biolerplate
 npm install
 ```
 
-## Available Scripts
+## Note
 
-- `start` - using nodemon to watch changes
-- `clean` - remove coverage data, Jest cache and transpiled files,
-- `prebuild` - lint source files and tests before building,
-- `build` - transpile TypeScript based on configuration in tsconfig.build.json,
-- `build:watch` - interactive watch mode to automatically transpile source files,
-- `lint` - lint source files and tests,
-- `test` - run tests
+- A new decorator `logGroup` is add to version `1.2.3`.
+- It will add called method to logger prefix by **modifying the definition of the class and method**
+
+## Changelog
+[ChangeLog](https://github.com/Maithanhdanh/express-typescript-boilerplate/blob/main/CHANGELOG.md)
 
 [ts-badge]: https://img.shields.io/badge/TypeScript-4.3-blue.svg
 [nodejs-badge]: https://img.shields.io/badge/Node.js->=%2014.16-blue.svg
