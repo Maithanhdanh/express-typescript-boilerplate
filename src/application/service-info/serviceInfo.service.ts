@@ -1,6 +1,7 @@
 import { ServiceInfoResponse } from '@application/service-info/type';
 import { types } from '@config/constants';
 import environment from '@config/environment';
+import { logGroup } from '@config/logger';
 import { inject, injectable } from 'inversify';
 import { Logger } from 'winston';
 
@@ -8,12 +9,13 @@ interface ServiceInfoService {
   getServiceInfo(): ServiceInfoResponse;
 }
 
+@logGroup()
 @injectable()
 class ServiceInfoServiceImpl implements ServiceInfoService {
   constructor(@inject(types.Logger) private logger: Logger) {}
 
   public getServiceInfo(): ServiceInfoResponse {
-    this.logger.info(`[${this.getServiceInfo.name}] getting service info`);
+    this.logger.info(`getting service info`);
 
     return {
       timestamp: Date.now().toString(),
