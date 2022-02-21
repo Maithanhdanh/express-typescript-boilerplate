@@ -1,3 +1,10 @@
+# [1.2.4]
+
+- When a class calls an outside function now still have a prefix in logger message
+  - Add a `customLogger` class
+  - Use `reflect-metadata` to store and retrieve when write a log
+  - Modify `logGroup`, and `container` config to adapt new logger
+
 # [1.2.3]
 
 - Add decorator `logGroup` to add called method to logger prefix
