@@ -1,7 +1,7 @@
 import { ServiceInfoResponse } from '@application/service-info/type';
 import { types } from '@config/constants';
 import environment from '@config/environment';
-import { logGroup } from '@config/logger';
+import { logGroup } from '@config/customLogger';
 import { inject, injectable } from 'inversify';
 import { Logger } from 'winston';
 

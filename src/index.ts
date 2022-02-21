@@ -9,6 +9,7 @@ moduleAlias.addAliases({
   '@utils': `${sourcePath}/utils`,
 });
 
+import 'reflect-metadata';
 import { createContainer } from '@config/container';
 import { startServer } from '@config/express';
 
