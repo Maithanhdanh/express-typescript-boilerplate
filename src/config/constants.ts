@@ -9,4 +9,9 @@ const types = {
   },
 };
 
-export { types };
+const reflectMetadataKeys = {
+  CLASS_NAME: 'className',
+  METHOD_NAME: 'methodName',
+};
+
+export { types, reflectMetadataKeys };

@@ -19,9 +19,7 @@ const startServer = (container: Container): Server => {
   const app = server.build();
   const service = app.listen({ host, port }, () => {
     const addressInfo = service.address() as AddressInfo;
-    logger.info(
-      `Server ready at http://${addressInfo.address}:${addressInfo.port}`,
-    );
+    logger.info(`Server ready at http://${addressInfo.address}:${addressInfo.port}`);
   });
 
   const signalTraps: NodeJS.Signals[] = ['SIGTERM', 'SIGINT', 'SIGUSR2'];

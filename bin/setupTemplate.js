@@ -2,12 +2,7 @@ const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const { isPathExist } = require('./utils');
-const {
-  SupportedPipelineTools,
-  GIT_REPO,
-  PipelinePathMapper,
-  PipelineConfigMapper,
-} = require('./constants');
+const { SupportedPipelineTools, GIT_REPO, PipelinePathMapper, PipelineConfigMapper } = require('./constants');
 
 const getPipelineFolder = (projectPath, pipelineTool) => {
   let oldPath = path.join(projectPath, 'pipeline/.circleci');
@@ -17,9 +12,7 @@ const getPipelineFolder = (projectPath, pipelineTool) => {
     oldPath = path.join(projectPath, 'pipeline/.github');
     newPath = path.join(projectPath, '.github');
 
-    fs.unlinkSync(
-      path.join(projectPath, 'pipeline/.github/workflows/codeql-analysis.yml'),
-    );
+    fs.unlinkSync(path.join(projectPath, 'pipeline/.github/workflows/codeql-analysis.yml'));
   }
 
   fs.renameSync(oldPath, newPath);
@@ -61,16 +54,11 @@ const setupPackage = (projectPath, pipelineTool) => {
     console.log(error);
   }
   console.log();
-  console.log(
-    'Any comments or questions are welcome!, mtd.maithanhdanh@gmail.com',
-  );
+  console.log('Any comments or questions are welcome!, mtd.maithanhdanh@gmail.com');
 };
 
 const publishTemplate = (projectPath, templatePath, pipelineTool) => {
-  const oldPath = path.join(
-    templatePath,
-    `pipeline/${PipelinePathMapper[pipelineTool]}`,
-  );
+  const oldPath = path.join(templatePath, `pipeline/${PipelinePathMapper[pipelineTool]}`);
   fs.renameSync(oldPath, `${oldPath}`);
   const newPath = path.join(projectPath, `${PipelinePathMapper[pipelineTool]}`);
 
@@ -83,18 +71,13 @@ const publishTemplate = (projectPath, templatePath, pipelineTool) => {
 
 const createPipelineTemplate = (projectPath, pipelineTool) => {
   if (isPathExist(PipelineConfigMapper[pipelineTool])) {
-    console.log(
-      'the config file is already existed, please delete it before create new one',
-    );
+    console.log('the config file is already existed, please delete it before create new one');
     process.exit(1);
   }
 
   const projectName = Math.random().toString(36).substr(2, 13);
   const templatePath = path.join(projectPath, projectName);
-  const pipelinePath = path.join(
-    projectPath,
-    `${PipelinePathMapper[pipelineTool]}`,
-  );
+  const pipelinePath = path.join(projectPath, `${PipelinePathMapper[pipelineTool]}`);
 
   if (!isPathExist(pipelinePath)) {
     fs.mkdirSync(pipelinePath, { recursive: true });
@@ -105,9 +88,7 @@ const createPipelineTemplate = (projectPath, pipelineTool) => {
 
   fs.rmdirSync(templatePath, { recursive: true });
 
-  console.log(
-    `Create pipeline template successfully, have fun with it in folder '${PipelinePathMapper[pipelineTool]}'`,
-  );
+  console.log(`Create pipeline template successfully, have fun with it in folder '${PipelinePathMapper[pipelineTool]}'`);
 };
 
 module.exports = { setupPackage, createPipelineTemplate };
