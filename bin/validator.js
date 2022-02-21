@@ -6,9 +6,7 @@ const setupFolder = (projectPath) => {
     fs.mkdirSync(projectPath);
   } catch (err) {
     if (err.code === 'EEXIST') {
-      console.log(
-        'Directory already exists. Please choose another name for the project.',
-      );
+      console.log('Directory already exists. Please choose another name for the project.');
     } else {
       console.log(err);
     }
@@ -17,14 +15,8 @@ const setupFolder = (projectPath) => {
 };
 
 const validateSupportedPipeline = (pipeline) => {
-  if (
-    ![SupportedPipelineTools.CIRCLECI, SupportedPipelineTools.GITHUB].includes(
-      pipeline,
-    )
-  ) {
-    console.log(
-      'Your pipeline tool is not supported currently. Please choose one of the following: circleci, github',
-    );
+  if (![SupportedPipelineTools.CIRCLECI, SupportedPipelineTools.GITHUB].includes(pipeline)) {
+    console.log('Your pipeline tool is not supported currently. Please choose one of the following: circleci, github');
     process.exit(1);
   }
 };

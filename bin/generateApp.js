@@ -11,11 +11,7 @@ const { setupFolder, validateSupportedPipeline } = require('./validator');
 program
   .command('init <project_name>')
   .description('Initialize a new project')
-  .option(
-    '-p, --pipeline_tool <pipeline>',
-    `pipeline tool [circleci, github]`,
-    'cirlceci',
-  )
+  .option('-p, --pipeline_tool <pipeline>', `pipeline tool [circleci, github]`, 'cirlceci')
   .action((projectName, options) => {
     const { pipeline_tool: pipelineTool } = options;
 

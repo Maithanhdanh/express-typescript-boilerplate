@@ -9,16 +9,11 @@ const PipelinePathMapper = {
 };
 
 const PipelineConfigMapper = {
-  [SupportedPipelineTools.GITHUB]: `${
-    PipelinePathMapper[SupportedPipelineTools.GITHUB]
-  }/nodejs.yml`,
-  [SupportedPipelineTools.CIRCLECI]: `${
-    PipelinePathMapper[SupportedPipelineTools.CIRCLECI]
-  }/config.yml`,
+  [SupportedPipelineTools.GITHUB]: `${PipelinePathMapper[SupportedPipelineTools.GITHUB]}/nodejs.yml`,
+  [SupportedPipelineTools.CIRCLECI]: `${PipelinePathMapper[SupportedPipelineTools.CIRCLECI]}/config.yml`,
 };
 
-const GIT_REPO =
-  'https://github.com/Maithanhdanh/express-typescript-boilerplate.git';
+const GIT_REPO = 'https://github.com/Maithanhdanh/express-typescript-boilerplate.git';
 
 module.exports = {
   SupportedPipelineTools,

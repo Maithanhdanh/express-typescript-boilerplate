@@ -9,16 +9,11 @@ const LoggerWrapper = (): Logger => {
   });
 };
 
-const createChildLogger = (
-  messagePrefix: string,
-  subPrefix?: string,
-): Logger => {
+const createChildLogger = (messagePrefix: string, subPrefix?: string): Logger => {
   return Object.create(logger, {
     write: {
       value(info) {
-        info.message = `[${messagePrefix}]${
-          subPrefix ? ` [${subPrefix}]` : ''
-        } ${info.message}`;
+        info.message = `[${messagePrefix}]${subPrefix ? ` [${subPrefix}]` : ''} ${info.message}`;
         logger.write(info);
       },
     },

@@ -53,10 +53,7 @@ const customLogger = new CustomLoggerImpl();
 function logGroup() {
   return (target: any) => {
     for (const propertyName of Object.getOwnPropertyNames(target.prototype)) {
-      const descriptor = Object.getOwnPropertyDescriptor(
-        target.prototype,
-        propertyName,
-      );
+      const descriptor = Object.getOwnPropertyDescriptor(target.prototype, propertyName);
       if (!descriptor) {
         continue;
       }
@@ -71,16 +68,8 @@ function logGroup() {
         customLogger.setContext(target.name, propertyName);
         (this as any).logger = customLogger;
 
-        Reflect.defineMetadata(
-          reflectMetadataKeys.METHOD_NAME,
-          propertyName,
-          customLogger,
-        );
-        Reflect.defineMetadata(
-          reflectMetadataKeys.CLASS_NAME,
-          target.name,
-          customLogger,
-        );
+        Reflect.defineMetadata(reflectMetadataKeys.METHOD_NAME, propertyName, customLogger);
+        Reflect.defineMetadata(reflectMetadataKeys.CLASS_NAME, target.name, customLogger);
 
         return originalMethod.apply(this, args);
       };

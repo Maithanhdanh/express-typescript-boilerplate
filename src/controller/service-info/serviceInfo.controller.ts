@@ -10,9 +10,7 @@ export interface ServiceInfoController extends interfaces.Controller {
 
 @controller('/info')
 export class ServiceInfoControllerImpl implements ServiceInfoController {
-  constructor(
-    @inject(types.Service.SERVICE_INFO) private serviceInfo: ServiceInfoService,
-  ) {}
+  constructor(@inject(types.Service.SERVICE_INFO) private serviceInfo: ServiceInfoService) {}
 
   @httpGet('/')
   public getServiceInfo(): ServiceInfoResponse {
