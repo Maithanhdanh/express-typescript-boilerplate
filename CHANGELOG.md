@@ -16,3 +16,7 @@
 # [1.1.2]
 
 - Up version to get sample log when running `npm publish` for tech blog
+
+# [1.1.3]
+
+- remove strict node version
