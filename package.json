@@ -1,6 +1,6 @@
 {
   "name": "typescript-maker",
-  "version": "1.2.5",
+  "version": "1.2.5-beta",
   "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "bin": {
     "typescript-maker": "./bin/generateApp.js"
@@ -50,5 +50,13 @@
   },
   "resolutions": {
     "got": "11.8.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Maithanhdanh/express-typescript-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Maithanhdanh/express-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Maithanhdanh/express-typescript-boilerplate"
 }
