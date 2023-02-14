@@ -1,3 +1,7 @@
+# [1.2.5]
+
+- remove strict node version
+
 # [1.2.4]
 
 - When a class calls an outside function now still have a prefix in logger message
