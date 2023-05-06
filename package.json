@@ -1,6 +1,6 @@
 {
   "name": "typescript-maker",
-  "version": "1.2.5-beta",
+  "version": "1.2.6",
   "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "bin": {
     "typescript-maker": "./bin/generateApp.js"
@@ -13,7 +13,9 @@
     "build": "tsc -p tsconfig.build.json",
     "build:watch": "tsc -w -p tsconfig.build.json",
     "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest"
+    "test": "jest",
+    "local-start": "docker-compose -f ./infrastructure/docker-compose.yml -p boilerplate up -d",
+    "local-stop": "docker-compose -f ./infrastructure/docker-compose.yml -p boilerplate stop"
   },
   "author": "Dantis Mai <mtd.maithanhdanh@gmail.com>",
   "license": "Apache-2.0",

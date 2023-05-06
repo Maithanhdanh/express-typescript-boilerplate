@@ -1,3 +1,7 @@
+# [1.2.6]
+
+- Add `docker`, `docker-compose` with `postgres` and `flyway`
+
 # [1.2.5]
 
 - remove strict node version
