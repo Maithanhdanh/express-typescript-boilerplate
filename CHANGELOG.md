@@ -1,4 +1,27 @@
-# [1.0.5]
+# [1.2.6]
+
+- Add `docker`, `docker-compose` with `postgres` and `flyway`
+
+# [1.2.5]
+
+- remove strict node version
+
+# [1.2.4]
+
+- When a class calls an outside function now still have a prefix in logger message
+  - Add a `customLogger` class
+  - Use `reflect-metadata` to store and retrieve when write a log
+  - Modify `logGroup`, and `container` config to adapt new logger
+
+# [1.2.3]
+
+- Add decorator `logGroup` to add called method to logger prefix
+
+# [1.2.2]
+
+- Add Github `CodeQL` pipeline
+
+# [1.2.1]
 
 - Add npm command `typescript-maker my-project`
 - Update `README`
